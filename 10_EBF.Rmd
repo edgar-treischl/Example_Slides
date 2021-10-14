@@ -87,7 +87,6 @@ xaringanExtra::use_webcam()
 ```
 
 
-
 ## 1. Die Klausur
 
 <p style="font-size:120%;">“Fast alle Fragen der Klausur sind Multiple-Choice Aufgaben. Sofern bei den Fragen nichts vermerkt ist (kein Hinweis auf eine Single-Choice Frage), sind jeweils 2 von 4 Antworten richtig. Die richtigen Antworten sind durch Kreuze zu markieren.”</p> 

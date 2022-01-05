@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>R for the Social Sciences</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Dr. Edgar Treischl" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
+    <script src="libs/mark.js/mark.min.js"></script>
+    <link href="libs/xaringanExtra-search/search.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-search/search.js"></script>
+    <script>window.addEventListener('load', function() { window.xeSearch = new RemarkSearch({"position":"top-right","caseSensitive":false,"showIcon":true,"autoSearch":true}) })</script>
+    <link href="libs/tachyons/tachyons.min.css" rel="stylesheet" />
+    <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view/tile-view.js"></script>
+    <script src="libs/xaringanExtra-webcam/webcam.js"></script>
+    <script id="xaringanExtra-webcam-options" type="application/json">{"width":"200","height":"200","margin":"1em"}</script>
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, title-slide
+
+# R for the Social Sciences
+## Session 1: Introducing R and RStudio
+### Dr. Edgar Treischl
+### Last update: 2022-01-05
+
+---
+
+
+
+
+
+
+
+
+<style>
+.search {
+  --search-icon-fill: rgba(128, 128, 128, 0.5);
+  --search-input-background: white;
+  --search-input-foreground: black;
+  --search-input-border: black;
+  --search-match-background: black;
+  --search-match-foreground: black;
+  --search-match-current-background: green;
+  --search-match-current-foreground: black;
+}</style>
+
+
+
+
+## Agenda
+
+### 1. Installation R und RStudio
+### 2. Base R
+### 3. Data types and structures
+
+
+
+---
+
+class: bottom, center, inverse
+
+# 🤖 .red[(1) Installation] 
+
+
+
+
+---
+## Install R
+
+.left-column[
+&lt;/br&gt;
+&lt;img src="images/R_logo.png" style="width: 60%"/&gt;&lt;/br&gt;
+&lt;https://www.r-project.org/&gt;
+] 
+
+.right-column[
+&lt;img src="images/2a1.png" style="width: 90%"/&gt;
+]
+
+
+
+
+
+---
+## Use R as a calculator
+
+
+```r
+#basic operations: +,-,*,/ 
+5 * 188 
+```
+
+```
+## [1] 940
+```
+
+```r
+# square root
+sqrt(16)
+```
+
+```
+## [1] 4
+```
+
+```r
+# logarithm (base: Euler's number e)
+log(1)
+```
+
+```
+## [1] 0
+```
+
+```r
+#print some words
+print("Hello World")
+```
+
+```
+## [1] "Hello World"
+```
+
+
+
+---
+## Install RStudio
+
+.left-column[
+&lt;img src="images/RStudio.png" style="width: 85%"/&gt;&lt;/br&gt;
+&lt;https://www.rstudio.com/&gt;
+] 
+
+.right-column[
+&lt;img src="images/2a2a.png" style="width: 95%"/&gt;
+]
+
+
+---
+## RStudio panes
+
+➡️️ Open a new R script :  `File &gt; New File &gt; R Script`
+
+&lt;center&gt;&lt;img src="images/2a2a.png" style="width: 65%"/&gt;&lt;/center&gt;
+
+
+```r
+# Press Ctlr + Enter on windows or Cmd + Enter on a mac to run code
+```
+
+
+---
+## Use RStudio as a calculator
+
+
+```r
+#basic operations: +,-,*,/ 
+5 * 188 
+```
+
+```
+## [1] 940
+```
+
+```r
+# powers
+3^2              
+```
+
+```
+## [1] 9
+```
+
+```r
+#print some words
+print("Hello World")
+```
+
+```
+## [1] "Hello World"
+```
+
+### Which differnces between R and RStudio did you realize?
+
+
+
+
+
+
+---
+## Auto-Completion
+
+&lt;center&gt;&lt;img src="images/auto.png" style="width: 75%"/&gt;&lt;/center&gt;
+
+
+```r
+#Do not forget surrounding quotes to print the string!
+print(Hello)
+```
+
+```
+## Error in print(Hello): Objekt 'Hello' nicht gefunden
+```
+
+
+
+---
+## The files pane 🗄️
+
+.pull-left[
+### - Shows your working directory
+### - Helps you to create folders, rename and delete files
+### - More?
+### What is your working directory?
+
+```r
+#getwd gets/prints your working directory
+getwd()
+```
+
+```
+## [1] "C:/Users/gu99mywo/Dropbox/R in Practice/Slides/02_First_Steps"
+```
+
+]
+.pull-right[
+&lt;center&gt;&lt;img src="images/files-pane.png" style="width: 85%"/&gt;&lt;/center&gt;
+]
+
+
+
+
+---
+## The plots pane
+
+.pull-left[
+### An example plot
+
+```r
+#Copy and run the following code!
+barplot(c(a = 22, b = 28, 
+          c = 33, d = 40, 
+          e = 55)
+        )
+```
+
+&lt;img src="First_Steps_Slides_files/figure-html/unnamed-chunk-6-1.png" width="504" /&gt;
+
+]
+
+.pull-right[
+### In RStudio
+&lt;center&gt;&lt;img src="images/2a2b.png" style="width: 100%"/&gt;&lt;/center&gt;
+]
+
+---
+## R Packages
+
+.pull-left[
+### Packages increase R capacities
+### Some example packages:
+- `ggplot2`: Graphs
+- `dplyr`: Data manipulations
+- `palmerpenguins`: Penguins data
+- `shiny`: Interactive dashboards
+- ...
+### Packages need (1) to be installed and (2) to be loaded
+
+]
+
+.pull-right[
+### Code
+
+```r
+#1: install package (only once)
+install.packages("palmerpenguins")
+
+#&gt;Try URL 'https://cran.rstudio.com/bin/4.0/palmerpenguins_0.1.0.tgz'
+#&gt;Content type 'application/x-gzip' length 3001738 bytes (2.9 MB)
+#&gt;==================================================
+#&gt;downloaded 2.9 MB
+
+#&gt;The downloaded binary packages are in
+#&gt;	/var/folders/0v/T//Rtmp4z29rO/downloaded_packages
+```
+
+
+```r
+#2: load package (each new R session)
+library(palmerpenguins)
+```
+
+]
+
+
+---
+## PracticeR Package
+
+.left-column[
+&lt;img src="images/featured.png" style="width: 80%"/&gt;
+] 
+
+.right-column[
+### Practice R has several online tutorials
+
+```r
+install.packages("devtools")
+devtools::install_github("edgar-treischl/PracticeR")
+```
+]
+
+
+---
+## The tutorial pane
+
+&lt;center&gt;&lt;img src="images/preview.png" style="width: 80%"/&gt;&lt;/center&gt;
+
+
+
+---
+## The help pane
+
+### R comes with many helpful ressources
+
+.pull-left[
+
+```r
+#Ask for help
+?barplot
+#Search for keywords/texts strings within the help files
+help.search("keywords")
+```
+
+]
+
+.pull-right[
+&lt;center&gt;&lt;img src="images/help.png" style="width: 90%"/&gt;&lt;/center&gt;
+]
+
+
+---
+## Further panes
+
+### - The environment pane
+- Shows the working environment (e.g. imported data, objects)
+
+### - The history pane
+- Shows previous applied code
+- Helpful if you make any mistakes
+
+### - Connections
+- Helps you manage to connect to databases (and other instances)
+
+
+
+---
+background-image: url("images/g1.gif")
+background-size: cover
+class: bottom, center
+
+# .white[(2) Base R] 
+
+
+---
+## The assignment operator
+
+
+```r
+#The assignment operator assigns a to 5
+a &lt;- 5
+a
+```
+
+```
+## [1] 5
+```
+
+
+```r
+#R does not print the results of the assignment
+(a &lt;- "Hello!")
+```
+
+```
+## [1] "Hello!"
+```
+
+
+```r
+#ABC of the assignment operator
+a &lt;- 5
+b &lt;- 6
+c &lt;- a + b
+c
+```
+
+```
+## [1] 11
+```
+
+---
+class: middle, center, inverse
+
+### Do it like a pro, press: 
+### `&lt;Alt&gt; + &lt;-&gt;`
+#### The assignment operator will appear out of nothing.
+
+
+
+---
+## Objects 🤖
+
+
+```r
+## Everything can be an object
+a
+```
+
+```
+## [1] 5
+```
+
+
+
+
+```r
+# Compare objects and R returns a boolean object (TRUE/FALSE)
+a &gt; b
+```
+
+```
+## [1] FALSE
+```
+
+```r
+a &gt;= b
+```
+
+```
+## [1] FALSE
+```
+
+```r
+a == b
+```
+
+```
+## [1] FALSE
+```
+
+```r
+a != b
+```
+
+```
+## [1] TRUE
+```
+
+
+---
+### Objects
+
+
+```r
+#Data
+myData &lt;- read_excel(myData.xlsx)
+```
+
+
+```r
+#Graphs: For example, two combine several graphs
+g1 &lt;- barplot(c(a = 22, b = 28, c = 33, d = 40, e = 55))
+```
+
+
+```r
+#Calculation
+mean_value &lt;- mean(c(22, 28, 33, 40, 55))
+mean_value
+```
+
+```
+## [1] 35.6
+```
+
+
+---
+## Functions
+
+### A simple example
+
+```r
+#You are doing the boring stuff
+running_number &lt;- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+running_number
+```
+
+```
+##  [1]  1  2  3  4  5  6  7  8  9 10
+```
+
+
+```r
+#Let base R do the boring stuff
+running_number &lt;- c(1:10)
+running_number
+```
+
+```
+##  [1]  1  2  3  4  5  6  7  8  9 10
+```
+
+
+```r
+#Let functions do the boring stuff! 
+seq(1:10)
+```
+
+```
+##  [1]  1  2  3  4  5  6  7  8  9 10
+```
+
+---
+## Functions::Let functions do the boring stuff! 🧙
+
+The `sequence()` function:
+
+```r
+seq(1,10,  by=2)
+```
+
+```
+## [1] 1 3 5 7 9
+```
+
+The `repetition()` function:
+
+
+```r
+rep("I am working like a machine!", times = 3)
+```
+
+```
+## [1] "I am working like a machine!" "I am working like a machine!"
+## [3] "I am working like a machine!"
+```
+
+
+```r
+rep(c(1, 2), each = 2)
+```
+
+```
+## [1] 1 1 2 2
+```
+
+# 🤖
+
+---
+### Functions
+
+### An illustration
+
+
+```r
+#how a function look like:
+function(x){
+  do something with X
+  }
+```
+
+### Un unrealistic example
+
+```r
+#input
+x &lt;- c(1, 2, 3)
+
+my_fun &lt;- function(x){
+  print(x)
+}
+
+my_fun(x)
+```
+
+```
+## [1] 1 2 3
+```
+
+
+---
+### An second illustration: Mean function
+### Sum/Length
+
+
+```r
+#The sum function:
+sum(c(3,2,1))
+```
+
+```
+## [1] 6
+```
+
+```r
+#The length function:
+length(c(3,2,1))
+```
+
+```
+## [1] 3
+```
+
+
+---
+### Functions: Mean()
+
+
+```r
+mean_function &lt;- function(data){
+  mean &lt;- sum(data)/length(data) #save and create mean
+  return(mean)
+}
+
+data &lt;- c(3, 2, 1, 5, 8, 12, 1)
+mean_function(data)
+```
+
+```
+## [1] 4.571429
+```
+
+### The real 🤙 mean()
+
+
+```r
+round(mean(c(3, 2, 1, 5, 8, 12, 1)), 
+      digits = 2)
+```
+
+```
+## [1] 4.57
+```
+
+
+
+---
+background-image: url("images/g3.gif")
+background-size: cover
+class: bottom, center
+
+# .white[(3) Data types and structure] 
+
+
+---
+## Data types
+
+### - Factors (*fctr* for categorical variables: sex("male", "female"))
+### - Integers (*int*: 5, 9)
+### - Real numbers (*doubles* or *dbl*: 3.32)
+### - Dates and times (*dates* or *dttm*: ).
+### - Strings and character vectors (*chr*: "Hello World")
+### - Logical (*lgl*: TRUE, FALSE)
+
+
+---
+## Data types
+
+### The class() function tells you the type of the object:
+
+```r
+x &lt;- c(1.3, 2.5, 3.0)
+class(x)
+```
+
+```
+## [1] "numeric"
+```
+
+### The typeof() function returns the storage mode of an object:
+
+
+```r
+typeof(x)
+```
+
+```
+## [1] "double"
+```
+
+
+---
+## Data types
+
+### Vector
+
+```r
+x&lt;- c(1, 2, 3, 4)
+x
+```
+
+```
+## [1] 1 2 3 4
+```
+
+### Data frame
+
+
+```r
+x&lt;- c(1, 2, 3, 4)
+y&lt;- c("a", "a", "a", "a")
+
+df &lt;- data.frame(x, y)
+df
+```
+
+```
+##   x y
+## 1 1 a
+## 2 2 a
+## 3 3 a
+## 4 4 a
+```
+
+---
+## Data types
+
+### Tibble
+
+
+```r
+tibble(x = c(1, 2, 3, 4), 
+       y = c("a", "a", "a", "a"))
+```
+
+### Tribble (Transposed Tibble)
+
+
+```r
+tribble(
+  ~sex, ~y, ~birth,
+  "Men", 16.2, "1976-10-09",
+  "Women", 22.7, "1981-01-06"
+)
+```
+
+```
+## # A tibble: 2 x 3
+##   sex       y birth     
+##   &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;     
+## 1 Men    16.2 1976-10-09
+## 2 Women  22.7 1981-01-06
+```
+
+---
+background-image: url("images/g2.gif")
+background-size: cover
+class: bottom, center
+
+### .white[Tibble ️vs. Data Frames] 
+
+---
+### Tibble ⚔️ data frames I: Output
+
+
+```r
+as_tibble(mtcars)
+```
+
+```
+## # A tibble: 32 x 11
+##      mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1  21       6  160    110  3.9   2.62  16.5     0     1     4     4
+##  2  21       6  160    110  3.9   2.88  17.0     0     1     4     4
+##  3  22.8     4  108     93  3.85  2.32  18.6     1     1     4     1
+##  4  21.4     6  258    110  3.08  3.22  19.4     1     0     3     1
+##  5  18.7     8  360    175  3.15  3.44  17.0     0     0     3     2
+##  6  18.1     6  225    105  2.76  3.46  20.2     1     0     3     1
+##  7  14.3     8  360    245  3.21  3.57  15.8     0     0     3     4
+##  8  24.4     4  147.    62  3.69  3.19  20       1     0     4     2
+##  9  22.8     4  141.    95  3.92  3.15  22.9     1     0     4     2
+## 10  19.2     6  168.   123  3.92  3.44  18.3     1     0     4     4
+## # ... with 22 more rows
+```
+
+
+---
+### Tibble ⚔️ data frames I: Output
+
+
+```r
+mtcars
+```
+
+```
+##                      mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710          22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+## Valiant             18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
+## Duster 360          14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4
+## Merc 240D           24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+## Merc 230            22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+## Merc 280            19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4
+## Merc 280C           17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4
+## Merc 450SE          16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3
+## Merc 450SL          17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3
+## Merc 450SLC         15.2   8 275.8 180 3.07 3.780 18.00  0  0    3    3
+## Cadillac Fleetwood  10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4
+## Lincoln Continental 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3    4
+## Chrysler Imperial   14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4
+## Fiat 128            32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+## Honda Civic         30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+## Toyota Corolla      33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+## Toyota Corona       21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
+## Dodge Challenger    15.5   8 318.0 150 2.76 3.520 16.87  0  0    3    2
+## AMC Javelin         15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2
+## Camaro Z28          13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4
+## Pontiac Firebird    19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2
+## Fiat X1-9           27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+## Porsche 914-2       26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+## Lotus Europa        30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+## Ford Pantera L      15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4
+## Ferrari Dino        19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6
+## Maserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8
+## Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2
+```
+
+
+---
+### Tibble ⚔️ data frames II: Recycling vectors
+
+
+```r
+#what you wanted to do:
+data.frame(person = 1:6, sex = c(1, 2, 1, 1, 2, 2)
+```
+
+
+```r
+#what you did by accident:
+data.frame(person = 1:6, sex = 1:2)
+```
+
+```
+##   person sex
+## 1      1   1
+## 2      2   2
+## 3      3   1
+## 4      4   2
+## 5      5   1
+## 6      6   2
+```
+
+#### ⚡Recycling vectors may lead to serious errors!
+
+
+```r
+tibble(person = 1:6, sex = 1:2)
+```
+
+```
+## Error: Tibble columns must have compatible sizes.
+## * Size 6: Existing data.
+## * Size 2: Column `sex`.
+## i Only values of size one are recycled.
+```
+
+
+---
+## Data types
+
+### Lists 🛍
+
+
+```r
+#lists combine heterogeneous output in one object
+
+my_list &lt;- list("numbers" = 1:10, 
+              "letters" = LETTERS[1:3], 
+              "names" = c("John", "Paul", "George", "Ringo") )
+my_list
+```
+
+```
+## $numbers
+##  [1]  1  2  3  4  5  6  7  8  9 10
+## 
+## $letters
+## [1] "A" "B" "C"
+## 
+## $names
+## [1] "John"   "Paul"   "George" "Ringo"
+```
+
+
+---
+## Data types: Slicing
+
+
+```
+##    names x    sex
+## 1  Bruno 1   male
+## 2 Justin 2   male
+## 3  Miley 3 female
+## 4 Ariana 4 female
+```
+
+### Slicing a vector
+
+
+```r
+x &lt;- df$names
+x
+```
+
+```
+## [1] "Bruno"  "Justin" "Miley"  "Ariana"
+```
+
+---
+### Slicing a vector
+
+
+```r
+#The third element
+x[3]
+```
+
+```
+## [1] "Miley"
+```
+
+```r
+#The same works with $
+df$names[3]
+```
+
+```
+## [1] "Miley"
+```
+
+```r
+#All elements except the third element
+x[-3]
+```
+
+```
+## [1] "Bruno"  "Justin" "Ariana"
+```
+
+```r
+#From the second to the third element
+x[2:3]
+```
+
+```
+## [1] "Justin" "Miley"
+```
+
+
+---
+### Slicing data frame
+
+
+```r
+#the first row
+df[1, ]
+```
+
+```
+##   names x  sex
+## 1 Bruno 1 male
+```
+
+```r
+#the first row and the first column
+df[1, 1]
+```
+
+```
+## [1] "Bruno"
+```
+
+```r
+#the first column
+df[ , 1]
+```
+
+```
+## [1] "Bruno"  "Justin" "Miley"  "Ariana"
+```
+
+---
+### Slicing data frame
+
+### The same principals work as we have seen ...
+
+
+```r
+#Start and endpoint
+df[1:2, ]
+```
+
+```
+##    names x  sex
+## 1  Bruno 1 male
+## 2 Justin 2 male
+```
+
+```r
+#All elements except
+df[-1, ]
+```
+
+```
+##    names x    sex
+## 2 Justin 2   male
+## 3  Miley 3 female
+## 4 Ariana 4 female
+```
+
+
+---
+### Slicing a list
+
+### Life is getting a bit more complicated
+
+
+```r
+#my_list[1] returns the list, the first element of the list and not the vector!
+my_list[1]
+```
+
+```
+## $numbers
+##  [1]  1  2  3  4  5  6  7  8  9 10
+```
+
+
+```r
+# returns the values of the first list
+my_list[[1]]
+```
+
+```
+##  [1]  1  2  3  4  5  6  7  8  9 10
+```
+
+---
+### Slicing a list: Extracting single elements
+
+
+```r
+#First three element of the first list
+my_list[[1]][1:3]
+```
+
+```
+## [1] 1 2 3
+```
+
+
+```r
+#You must take the nested structure of a list into account
+my_list[1][1:3]
+```
+
+```
+## $numbers
+##  [1]  1  2  3  4  5  6  7  8  9 10
+## 
+## $&lt;NA&gt;
+## NULL
+## 
+## $&lt;NA&gt;
+## NULL
+```
+
+➡️ The first list has only one element, the second and the third element of the first list does not exist
+
+---
+## Code first
+
+.pull-left[
+
+```r
+dat &lt;- data.frame(
+  time = factor(c("Lunch","Dinner"), levels=c("Lunch","Dinner")),
+  total_bill = c(14.89, 17.23)
+)
+
+library(ggplot2)
+
+# Very basic bar graph
+ggplot(data=dat, aes(x=time, y=total_bill)) +
+    geom_bar(stat="identity")
+```
+]
+.pull-right[
+&lt;img src="First_Steps_Slides_files/figure-html/unnamed-chunk-51-1.png" width="504" /&gt;
+]
+
+
+
+---
+## Palmer Penguins
+
+&lt;center&gt;&lt;img src="images/penguins.png" style="width: 70%"/&gt;&lt;/center&gt;
+
+
+---
+
+## Plot first
+
+.pull-left[
+&lt;img src="First_Steps_Slides_files/figure-html/plot-first-1.png" width="504" /&gt;
+]
+.pull-right[
+
+```r
+# Very basic bar graph
+ggplot(data=dat, aes(x=time, 
+                     y=total_bill)) +
+*   geom_bar(stat="identity")
+```
+]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
